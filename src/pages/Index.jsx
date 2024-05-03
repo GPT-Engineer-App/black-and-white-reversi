@@ -1,15 +1,18 @@
-// Complete the Index page component here
-// Use chakra-ui
-import { Button } from "@chakra-ui/react"; // example
-import { FaPlus } from "react-icons/fa"; // example - use react-icons/fa for icons
+import React, { useState } from 'react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
+import OthelloBoard from '../components/OthelloBoard';
+import PlayerIndicator from '../components/PlayerIndicator';
 
 const Index = () => {
-  // TODO: Create the website here!
+  const [currentPlayer, setCurrentPlayer] = useState('B'); // B for Black, W for White
+
   return (
-    <Button>
-      Hello world! <FaPlus />
-    </Button>
-  ); // example
+    <Flex direction="column" align="center" justify="center" minH="100vh" bg="gray.900">
+      <Heading mb={4} color="white">Othello Game</Heading>
+      <PlayerIndicator currentPlayer={currentPlayer} />
+      <OthelloBoard />
+    </Flex>
+  );
 };
 
 export default Index;
